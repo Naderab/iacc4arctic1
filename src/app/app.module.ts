@@ -9,11 +9,13 @@ import { FormResidenceComponent } from './form-residence/form-residence.componen
 import { FormApartementComponent } from './form-apartement/form-apartement.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsResidenceComponent } from './details-residence/details-residence.component';
+import { ResidenceService } from './core/services/residence.service';
+import { TestModule } from './test/test.module';
 
 @NgModule({
   declarations: [AppComponent, ResidencesComponent, FormResidenceComponent, FormApartementComponent, NotFoundComponent, DetailsResidenceComponent],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [],
+  imports: [BrowserModule, FormsModule, AppRoutingModule,TestModule],
+  providers: [ResidenceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

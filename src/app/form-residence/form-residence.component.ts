@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ResidenceService } from '../core/services/residence.service';
 
 @Component({
   selector: 'app-form-residence',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class FormResidenceComponent {
 
+  aComponent!: number;
+  constructor(private rs: ResidenceService) {
+    this.aComponent = this.rs.a;
+  }
 }
