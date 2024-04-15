@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Residence } from '../core/models/residence';
 import { Apartment } from '../core/models/apartment';
+import { ResidenceService } from '../core/services/residence.service';
 
 @Component({
   selector: 'app-residences',
@@ -8,32 +9,26 @@ import { Apartment } from '../core/models/apartment';
   styleUrls: ['./residences.component.css'],
 })
 export class ResidencesComponent {
+  residences: Residence[] = [];
+  constructor(private rs: ResidenceService) {
+    this.rs.getResidences().subscribe({
+      next: (data) => this.residences = data,
+      error : (e)=>console.log(e)
+    })
+  }
+
+  delete(id: number) {
+    this.rs.deleteResidence(id).subscribe({
+      next : ()=>this.residences = this.residences.filter((r)=>r.id !== id)
+    })
+  }
   title: string = 'Welcome to residences component';
   residence = {
     id: 1,
     name: 'Residence farah',
     surface: 120,
   };
-  residences: Residence[] = [
-    {
-      id: 1,
-      name: 'Residence farah 1',
-      address: 'Boumhal',
-      image: '',
-    },
-    {
-      id: 2,
-      name: 'Residence farah 2',
-      address: 'Mrezga',
-      image: '',
-    },
-    {
-      id: 3,
-      name: 'Residence farah 3',
-      address: 'Arianna',
-      image: '',
-    },
-  ];
+
   listApartments: Apartment[] = [
     {
       id: 1,
@@ -88,13 +83,13 @@ export class ResidencesComponent {
   }
 
   color: string = 'red';
-  listApartementByResidence:Apartment[]=[]
+  listApartementByResidence: Apartment[] = [];
   showA(r: Residence) {
-    this.listApartementByResidence=[]
+    this.listApartementByResidence = [];
     this.listApartments.forEach((a) => {
       if (a.residence == r) {
-        this.listApartementByResidence.push(a)
+        this.listApartementByResidence.push(a);
       }
-    })
+    });
   }
 }

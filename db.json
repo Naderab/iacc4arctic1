@@ -1,0 +1,11 @@
+{
+  "residences": [
+    {
+      "id":1,
+      "name":"Farah",
+      "address":"Hammamet",
+      "image":"../../assets/images/R1.jpg"
+    }
+  ],
+  "apartment": []
+}

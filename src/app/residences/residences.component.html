@@ -20,6 +20,9 @@
         <td>{{r.name}}</td>
         <td>{{r.address}}</td>
         <td><button (click)="showA(r)">Show Appartement</button></td>
+        <td><button (click)="delete(r.id)">Delete</button></td>
+        <td><a [routerLink]="['/residence/',r.id]">To details</a></td>
+
     </tr>
 </table>
 

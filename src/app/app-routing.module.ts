@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'residences', component: ResidencesComponent },
   { path: 'residence/add', component: FormResidenceComponent },
   { path: 'apartement/add', component: FormApartementComponent },
-  { path: 'residence/:param/:id/:name', component: DetailsResidenceComponent },
+  { path: 'residence/:id', component: DetailsResidenceComponent },
   {path:'test',loadChildren:()=>import("./test/test.module").then((m)=>m.TestModule)},
   { path: '**', component: NotFoundComponent },
 ];

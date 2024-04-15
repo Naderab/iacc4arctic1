@@ -11,10 +11,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailsResidenceComponent } from './details-residence/details-residence.component';
 import { ResidenceService } from './core/services/residence.service';
 import { TestModule } from './test/test.module';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent, ResidencesComponent, FormResidenceComponent, FormApartementComponent, NotFoundComponent, DetailsResidenceComponent],
-  imports: [BrowserModule, FormsModule, AppRoutingModule,TestModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule,
+    TestModule,HttpClientModule],
   providers: [ResidenceService],
   bootstrap: [AppComponent],
 })
