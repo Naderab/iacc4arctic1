@@ -1,2 +1,66 @@
 <p>form-apartement works!</p>
-<button (click)="updateAFromComponent()">Update A from component</button>
+<form (ngSubmit)="add()" [formGroup]="apartForm">
+    <div>
+        <p>Apartment Nmber</p>
+        <input type="text" formControlName="appartNum">
+        <div *ngIf="appartNum?.invalid && (appartNum?.touched || appartNum?.dirty)">
+            <div *ngIf="appartNum?.errors?.['required']">appartNum is required !</div>
+            <div *ngIf="appartNum?.errors?.['pattern']">appartNum contains only numbers !</div>
+        </div>
+    </div>
+    <div>
+        <p>Floor Number</p>
+        <input type="text" formControlName="floorNum">
+        <div *ngIf="floorNum?.invalid && (floorNum?.touched || floorNum?.dirty)">
+            <div *ngIf="floorNum?.errors?.['required']">floorNum is required !</div>
+            <div *ngIf="floorNum?.errors?.['pattern']">floorNum contains only numbers !</div>
+        </div>
+    </div>
+    <div>
+        <p>Surface</p>
+        <input type="number" formControlName="surface">
+        <div *ngIf="surface?.invalid && (surface?.touched || surface?.dirty)">
+            <div *ngIf="surface?.errors?.['required']">surface is required !</div>
+
+        </div>
+    </div>
+    <div>
+        <p>Terrace </p>
+        <input type="radio" formControlName="terrace" value="yes">Yes
+        <input type="radio" formControlName="terrace" value="no">No
+        <div *ngIf="terrace?.invalid && (terrace?.touched || terrace?.dirty)">
+            <div *ngIf="terrace?.errors?.['required']">terrace is required !</div>
+
+        </div>
+    </div>
+    <div *ngIf="terrace?.value=='yes'">
+        <p>Surface Terrace </p>
+
+        <input type="number" formControlName="surfaceTerrace">
+        <div *ngIf="surfaceTerrace?.invalid && (surfaceTerrace?.touched || surfaceTerrace?.dirty)">
+            <div *ngIf="surfaceTerrace?.errors?.['required']">surfaceTerrace is required !</div>
+        </div>
+    </div>
+    <div>
+        <p>Category</p>
+
+        <input type="radio" formControlName="category" value="s+1">s+1
+        <input type="radio" formControlName="category" value="s+2">s+2
+        <input type="radio" formControlName="category" value="s+3">s+3
+        <div *ngIf="category?.invalid && (category?.touched || category?.dirty)">
+            <div *ngIf="category?.errors?.['required']">category is required !</div>
+
+        </div>
+    </div>
+    <div>
+        <p>Description</p>
+        <input type="text" formControlName="description">
+        <div *ngIf="description?.invalid && (description?.touched || description?.dirty)">
+            <div *ngIf="description?.errors?.['required']">Name is required !</div>
+            <div *ngIf="description?.errors?.['minlength']">Name must have at least 10 characters !</div>
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="apartForm.invalid">add appartement</button>
+
+</form>

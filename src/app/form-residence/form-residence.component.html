@@ -1,3 +1,26 @@
 <p>form-residence works!</p>
 
 A : {{aComponent}}
+
+<input [formControl]="test">
+
+<form [formGroup]="residence" (ngSubmit)="add()">
+    Name :
+    <input formControlName="name">
+    <div *ngIf="name?.invalid && (name?.touched || name?.dirty)">
+        <div *ngIf="name?.errors?.['required']">Name is required !</div>
+        <div *ngIf="name?.errors?.['minlength']">Name must have at least 3 characters !</div>
+    </div>
+    Address :
+    <input formControlName="address">
+    <div *ngIf="address?.invalid && (address?.touched || address?.dirty)">
+        <div *ngIf="address?.errors?.['required']">Address is required !</div>
+        <div *ngIf="address?.errors?.['pattern']">Address must start with a number!</div>
+    </div>
+    Image : 
+    <input formControlName="image">
+    <div *ngIf="image?.invalid && (image?.touched || image?.dirty)">
+        <div>Image is required !</div>
+    </div>
+    <input type="submit" [disabled]="residence.invalid" >
+</form>

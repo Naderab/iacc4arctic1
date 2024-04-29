@@ -1,10 +1,28 @@
 {
   "residences": [
     {
-      "id":1,
-      "name":"Farah",
-      "address":"Hammamet",
-      "image":"../../assets/images/R1.jpg"
+      "id": 1,
+      "name": "Farah",
+      "address": "Hammamet",
+      "image": "../../assets/images/R1.jpg"
+    },
+    {
+      "name": "Residence test update",
+      "address": "Addresse residence test update",
+      "image": "../../assets/images/R2.jpg",
+      "id": 2
+    },
+    {
+      "name": "Test add",
+      "address": "test add address",
+      "image": "../../assets/images/R3.jpg",
+      "id": 3
+    },
+    {
+      "name": "aaa",
+      "address": "12aaaa",
+      "image": "aaa",
+      "id": 4
     }
   ],
   "apartment": []

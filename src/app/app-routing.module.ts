@@ -13,7 +13,11 @@ const routes: Routes = [
   { path: 'residence/add', component: FormResidenceComponent },
   { path: 'apartement/add', component: FormApartementComponent },
   { path: 'residence/:id', component: DetailsResidenceComponent },
-  {path:'test',loadChildren:()=>import("./test/test.module").then((m)=>m.TestModule)},
+  { path: 'residence/update/:id', component: FormResidenceComponent },
+  {
+    path: 'test',
+    loadChildren: () => import('./test/test.module').then((m) => m.TestModule),
+  },
   { path: '**', component: NotFoundComponent },
 ];
 
